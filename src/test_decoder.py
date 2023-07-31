@@ -19,8 +19,8 @@ class TestBarcodeStringExtraction():
 
     expected_fields = [
         ("4463-D1CPC0306QR050FF-T50CT-ND", "D1CPC0306QR050FF-T50", 10),
-        ("160-1350-5-ND", "LTV-814H.K6666190045", 4),
-        ("36-783-C-ND", "783-C.K202301100001", 1),
+        ("160-1350-5-ND", "LTV-814H", 4),
+        ("36-783-C-ND", "783-C", 1),
         ("3191-S14CT-ND", "S14", 100),
         ("1292-WR06X221JTLCT-ND", "WR06X221 JTL", 478),
         ("2648-SC0889-ND", "SC0889", 1),
