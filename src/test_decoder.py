@@ -1,6 +1,11 @@
+import pytest
+
+from . import br_decoder
 
 
-class barcode_test_data():
+class TestBarcodeStringExtraction():
+    "Verify extraction of field values with sample data from previous orders."
+
     barcode_data = [
         "[)>.06.P4463-D1CPC0306QR050FF-T50CT-ND.1PD1CPC0306QR050FF-T50.K202301100001.1K79514818.10K94852328.11K1.4LCN.Q10.11ZPICK.12Z16735650.13Z924360.20Z000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "[)>.06.P160-1350-5-ND.1PLTV-814H.K6666190045.1K59394301.10K67935666.11K1.4LTH.Q4.11ZPICK.12Z385820.13Z194779.20Z0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -20,3 +25,10 @@ class barcode_test_data():
         ("1292-WR06X221JTLCT-ND", "WR06X221 JTL", 478),
         ("2648-SC0889-ND", "SC0889", 1),
     ]
+
+    def test_string_extraction(self):
+        "Test for correct extraction of field values."
+        decoder = br_decoder.Decoder()
+
+        for idx, data in enumerate(self.barcode_data):
+            assert decoder.decode(data) == self.expected_fields[idx]
