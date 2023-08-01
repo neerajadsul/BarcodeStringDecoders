@@ -1,4 +1,6 @@
 iniconfig==2.0.0
 packaging==23.1
 pluggy==1.2.0
+pyserial==3.5
+pyserial-asyncio==0.6
 pytest==7.4.0
