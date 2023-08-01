@@ -10,10 +10,10 @@ import br_decoder
 logger = logging.getLogger('Barcode Scanner')
 
 
-def populate_comports(kind='usb') -> list:
+def populate_comports(product='N5600') -> list:
     ports = []
     for port in list_ports.comports():
-        if kind.lower() in port.name:
+        if product == port.product:
             ports.append(port)
     return ports
 
@@ -21,6 +21,7 @@ def populate_comports(kind='usb') -> list:
 class BarcodeScanner:
     def __init__(self, comport):
         try:
+            self.comport = comport
             self.scanner = serial.Serial(comport, baudrate=115200, timeout=0.2, write_timeout=0.2)
             self.scanner.write(b'#REVSOFT\r\n')
             data = self.scanner.readall().decode()
@@ -33,9 +34,9 @@ class BarcodeScanner:
         except serial.SerialException:
             logger.error('Error communicating with Barcode Scanner')
 
-    def scan(self) -> bytes:
+    def scan(self, wait_time=5) -> bytes:
         self.scanner.write(b'#TRGON\r\n')
-        time.sleep(5)
+        time.sleep(wait_time)
         self.scanner.write(b'#TRGOFF\r\n')
         data = self.scanner.read_until(expected=b'20Z00000')
         return data
