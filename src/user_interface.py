@@ -20,6 +20,7 @@ class BarcodeExtractorUI:
 
         self.comport = StringVar()
         comport_entry = ttk.Combobox(mainframe, width=10, textvariable=self.comport)
+        comport_entry.state(['readonly'])
         comport_entry.grid(column=1, row=0)
 
         self.part_id = StringVar()
