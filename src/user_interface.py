@@ -22,6 +22,7 @@ class BarcodeExtractorUI:
         ttk.Label(mainframe, text='Part ID').grid(column=0, row=1)
         ttk.Label(mainframe, text='MFG Part ID').grid(column=0, row=2)
         ttk.Label(mainframe, text='Quantity').grid(column=0, row=3)
+        ttk.Label(mainframe, text='Press Enter or click Scan Barcode button.').grid(column=0, row=4, columnspan=2, sticky=(E))
 
         comport_choice = ttk.Combobox(mainframe, width=30)
         comport_choice.state(['readonly'])
@@ -33,12 +34,12 @@ class BarcodeExtractorUI:
         self.mfg_part_id = StringVar()
         self.quantity = IntVar()
 
-        ttk.Entry(mainframe, textvariable=self.part_id).grid(column=1, row=1)
-        ttk.Entry(mainframe, textvariable=self.mfg_part_id).grid(column=1, row=2)
-        ttk.Entry(mainframe, textvariable=self.quantity).grid(column=1, row=3)
+        ttk.Entry(mainframe, textvariable=self.part_id, width=50).grid(column=1, row=1)
+        ttk.Entry(mainframe, textvariable=self.mfg_part_id, width=50).grid(column=1, row=2)
+        ttk.Entry(mainframe, textvariable=self.quantity, width=10).grid(column=1, row=3)
 
-        scan_button = ttk.Button(mainframe, text="Scan Barcode", command=self.barcode_data)
-        scan_button.grid(column=3, row=5, columnspan=2)
+        scan_button = ttk.Button(mainframe, text="Scan Barcode", command=self.barcode_data,)
+        scan_button.grid(column=3, row=4, columnspan=2)
 
         for child in mainframe.winfo_children():
             child.grid_configure(padx=5, pady=5)
