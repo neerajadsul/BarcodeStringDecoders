@@ -5,6 +5,9 @@ import br_decoder
 from scanner_comm import BarcodeScanner
 from scanner_comm import populate_comports
 
+SOFTWARE_VERSION = '0.1'
+
+
 class BarcodeExtractorUI:
     def __init__(self, root, barcode_scanner=None):
         self.root = root
@@ -22,7 +25,8 @@ class BarcodeExtractorUI:
         ttk.Label(mainframe, text='Part ID').grid(column=0, row=1)
         ttk.Label(mainframe, text='MFG Part ID').grid(column=0, row=2)
         ttk.Label(mainframe, text='Quantity').grid(column=0, row=3)
-        ttk.Label(mainframe, text='Press Enter or click Scan Barcode button.').grid(column=0, row=4, columnspan=2, sticky=(E))
+        ttk.Label(mainframe, text=f'v.{SOFTWARE_VERSION}').grid(column=0, row=4)
+        ttk.Label(mainframe, text=' Press Enter or click Scan Barcode button.').grid(column=0, row=4, columnspan=2, sticky=(E))
 
         comport_choice = ttk.Combobox(mainframe, width=30)
         comport_choice.state(['readonly'])
