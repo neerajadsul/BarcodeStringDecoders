@@ -1,37 +1,12 @@
 # DigiKey Barcode Decoder
 
-Supported Barcode Scanner:
-1. Honeywell N5600 camera based scanner with USB interface in COM emulation mode.
+## Motivation
+DigiKey is the best! 
 
-## How to install?
+I try to maintain inventory of parts. This needs a search for component information with either the manufacturer part number or the DigiKey part number. 
+Some of these fields are much longer than what you can quickly type, hence a simple tool to decode the barcode.
 
-* Python Version tested on: **3.11**
-* OS Supported: **Linux or macOS**
-
-1. Clone the repository.
-2. Create Python virtual environment with:
-   
-   `python -m venv <path where to create>` 
-   
-   e.g. `python -m venv ~/.virtualenvs/digikeybarcode`.
-3. Activate virtual environment using: 
-4. Install the dependencies using `pip install -r requirements.txt`.
-5. Run the program using: `python src/user_interface.py`.
-
-## How to use?
-* Connect the USB barcode scanner to the computer and make sure it works beforehand.
-* When the software starts, it will scan for COM ports with product ID **N5600** and selects it.
-* Then the empty user interface (UI) is loaded which shows selected virtual COM Port as follows:
-
-![](docs/images/main_ui.jpg)
-
-Ready your DigiKey pack with barcode.
-When you press Enter or click on Scan Barcode button, the scanner will trigger scanning mode.
-Once it scans it will be a couple of seconds before the data gets filled into the text boxes.
-
-![](docs/images/main_ui_scanned.jpg)
-
-By default, the Part ID is automatically copied to the System Clipboard.
+<!-- toc -->
 
 ## DigiKey Barcode Format
 Reference:
@@ -74,3 +49,35 @@ Decoded fields follows after the header, each field has prefix indicating type a
 
 The barcode can be used along with DigiKey's web API to obtain information in JSON format.
 More information at https://developer.digikey.com/products/barcode/barcoding/product2dbarcode.
+Supported Barcode Scanner:
+1. Honeywell N5600 camera based scanner with USB interface in COM emulation mode.
+
+## How to install?
+
+* Python Version tested on: **3.11**
+* OS Supported: **Linux or macOS**
+
+1. Clone the repository.
+2. Create Python virtual environment with:
+   
+   `python -m venv <path where to create>` 
+   
+   e.g. `python -m venv ~/.virtualenvs/digikeybarcode`.
+3. Activate virtual environment using: 
+4. Install the dependencies using `pip install -r requirements.txt`.
+5. Run the program using: `python src/user_interface.py`.
+
+## How to use?
+* Connect the USB barcode scanner to the computer and make sure it works beforehand.
+* When the software starts, it will scan for COM ports with product ID **N5600** and selects it.
+* Then the empty user interface (UI) is loaded which shows selected virtual COM Port as follows:
+
+![](docs/images/main_ui.jpg)
+
+Ready your DigiKey pack with barcode.
+When you press Enter or click on Scan Barcode button, the scanner will trigger scanning mode.
+Once it scans it will be a couple of seconds before the data gets filled into the text boxes.
+
+![](docs/images/main_ui_scanned.jpg)
+
+By default, the Part ID is automatically copied to the System Clipboard.
